@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">صلاحيات</string>
+    <string name="welcome">welcome</string>
+    <string name="login_with">login_with</string>
+    <string name="user_name">User name</string>
+    <string name="password">Password</string>
+    <string name="Login">Login</string>
+    <string name="request">Request</string>
+    <string name="ip_settings">Ip Settings</string>
+
+
+</resources>
