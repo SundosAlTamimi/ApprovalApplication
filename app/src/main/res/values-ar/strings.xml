@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">صلاحيات</string>
-    <string name="welcome">welcome</string>
+    <string name="welcome">مرحبا</string>
     <string name="login_with">login_with</string>
-    <string name="user_name">User name</string>
-    <string name="password">Password</string>
-    <string name="Login">Login</string>
-    <string name="request">Request</string>
-    <string name="ip_settings">Ip Settings</string>
+    <string name="user_name">اسم المستخدم</string>
+    <string name="password">كلمة السر</string>
+    <string name="Login">دخول</string>
+    <string name="request">طلب</string>
+    <string name="ip_settings">Ip اعدادات</string>
+    <string name="invalid_user">مستخدم خاطى</string>
+    <string name="invalid_pass">كلمة السر خاطئة</string>
 
 
 </resources>
