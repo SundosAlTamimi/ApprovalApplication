@@ -7,6 +7,8 @@
     <string name="Login">Login</string>
     <string name="request">Request</string>
     <string name="ip_settings">Ip Settings</string>
+    <string name="invalid_user">Invalid User</string>
+    <string name="invalid_pass">Invalid Password</string>
     <string name="Welcome_User">Welcome User</string>
     <string name="Details">Details</string>
     <string name="WDate">Date</string>
