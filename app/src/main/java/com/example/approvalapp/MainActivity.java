@@ -42,24 +42,24 @@ initialization();
         importJson=new ImportJson(MainActivity.this);
         importJson.getOrder();
 
-        listData.add(new ListOfOrderData("ee"));
-
-        listData.add(new ListOfOrderData("ee1"));
-        listData.add(new ListOfOrderData("ee2"));
-        listData.add(new ListOfOrderData("ee3"));
-        listData.add(new ListOfOrderData("ee4"));
-        listData.add(new ListOfOrderData("ee5"));
-        listData.add(new ListOfOrderData("ee6"));
-        listData.add(new ListOfOrderData("ee7"));
-        listData.add(new ListOfOrderData("ee8"));
-        listData.add(new ListOfOrderData("ee9"));
-        listData.add(new ListOfOrderData("ee74"));
-        listData.add(new ListOfOrderData("ee5"));
-        listData.add(new ListOfOrderData("ee2"));
-        listData.add(new ListOfOrderData("ee2"));
-        listData.add(new ListOfOrderData("ee5"));
-        listAdapterOrder=new ListAdapterOrder(MainActivity.this,listData);
-        list.setAdapter(listAdapterOrder);
+//        listData.add(new ListOfOrderData("ee"));
+//
+//        listData.add(new ListOfOrderData("ee1"));
+//        listData.add(new ListOfOrderData("ee2"));
+//        listData.add(new ListOfOrderData("ee3"));
+//        listData.add(new ListOfOrderData("ee4"));
+//        listData.add(new ListOfOrderData("ee5"));
+//        listData.add(new ListOfOrderData("ee6"));
+//        listData.add(new ListOfOrderData("ee7"));
+//        listData.add(new ListOfOrderData("ee8"));
+//        listData.add(new ListOfOrderData("ee9"));
+//        listData.add(new ListOfOrderData("ee74"));
+//        listData.add(new ListOfOrderData("ee5"));
+//        listData.add(new ListOfOrderData("ee2"));
+//        listData.add(new ListOfOrderData("ee2"));
+//        listData.add(new ListOfOrderData("ee5"));
+//        listAdapterOrder=new ListAdapterOrder(MainActivity.this,listData);
+//        list.setAdapter(listAdapterOrder);
 
         simpleSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -72,12 +72,13 @@ initialization();
             @Override
             public boolean onQueryTextChange(String s) {
                 String text = s;
-                if(text.equals("")) {
+                if(!text.equals("")) {
 
                     listContains(listData, text);
-                }else{
-                    listOfOrder(listData);
                 }
+//                else{
+//                    listOfOrder(listData);
+//                }
                 return true;
             }
         });
@@ -99,8 +100,8 @@ initialization();
 
 
     public void listContains(List<ListOfOrderData> customTypeList, String searchedString) {
-//        try {
-            filterList.clear();
+        try {
+        filterList.clear();
             for (ListOfOrderData val : customTypeList) {
                 Log.e("data=",""+val.getUSERNM());
                 if(val.getUSERNM().toString().contains(searchedString)){
@@ -108,10 +109,10 @@ initialization();
                     Log.e("data=",""+val.getUSERNM());
                 }
             }
-//        }catch (Exception e)
-//        {
+        }catch (Exception e)
+        {
 //
-//        }
+        }
         listOfOrder(filterList);
         Log.e("data2=",""+filterList.size());
 

@@ -3,6 +3,7 @@ package com.example.approvalapp.Model;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class ListOfOrderData implements Serializable {
 //[{"APPKIND":"0","POSNO":"2","USERNO":"1000","USERNM":"المستخدم الرئيسي","REQNO":"D_2_1000_20211230184756","WDATE":"14\/07\/2020","TOTAL":"9.000",
@@ -45,6 +46,8 @@ public class ListOfOrderData implements Serializable {
     public String POSNM;
     @SerializedName("APPSTATUS")
     public String APPSTATUS;
+   // @SerializedName("INFO")
+    public List<ListOfOrderData> INFO;
 
 
     public ListOfOrderData(String name) {
@@ -194,5 +197,13 @@ public class ListOfOrderData implements Serializable {
 
     public void setAPPSTATUS(String APPSTATUS) {
         this.APPSTATUS = APPSTATUS;
+    }
+
+    public List<ListOfOrderData> getINFO() {
+        return INFO;
+    }
+
+    public void setINFO(List<ListOfOrderData> INFO) {
+        this.INFO = INFO;
     }
 }

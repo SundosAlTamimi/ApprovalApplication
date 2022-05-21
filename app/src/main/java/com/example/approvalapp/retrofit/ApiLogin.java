@@ -1,7 +1,7 @@
 package com.example.approvalapp.retrofit;
 
 
-import com.example.approvalapp.model.UserInfo;
+import com.example.approvalapp.Model.UserInfo;
 
 import java.util.List;
 

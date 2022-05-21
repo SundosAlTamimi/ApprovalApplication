@@ -73,7 +73,7 @@ public class ExportJson {
 
             swATrans = new SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE);
             swATrans.getProgressHelper().setBarColor(Color.parseColor("#FDD835"));
-            swATrans.setTitleText("PleaseWait");
+            swATrans.setTitleText("Loading ...");
             swATrans.setCancelable(false);
             swATrans.show();
 
@@ -253,7 +253,7 @@ public class ExportJson {
 
             swATrans = new SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE);
             swATrans.getProgressHelper().setBarColor(Color.parseColor("#FDD835"));
-            swATrans.setTitleText("PleaseWait");
+            swATrans.setTitleText("Loading ...");
             swATrans.setCancelable(false);
             swATrans.show();
 

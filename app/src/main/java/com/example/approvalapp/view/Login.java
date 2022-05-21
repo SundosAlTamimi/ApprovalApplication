@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.approvalapp.MainActivity;
 import com.example.approvalapp.R;
-import com.example.approvalapp.model.UserInfo;
+import com.example.approvalapp.Model.UserInfo;
 import com.example.approvalapp.retrofit.ApiLogin;
 import com.example.approvalapp.retrofit.RetrofitInstance;
 
