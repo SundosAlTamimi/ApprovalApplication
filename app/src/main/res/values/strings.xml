@@ -9,4 +9,10 @@
     <string name="ip_settings">Ip Settings</string>
     <string name="invalid_user">Invalid User</string>
     <string name="invalid_pass">Invalid Password</string>
+    <string name="app_done">Done</string>
+    <string name="cancel">Cancel</string>
+    <string name="Enter_Settings">Enter Settings</string>
+    <string name="required">required</string>
+    <string name="ipaddress">ip address</string>
+
 </resources>

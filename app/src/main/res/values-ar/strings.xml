@@ -10,6 +10,9 @@
     <string name="ip_settings">Ip اعدادات</string>
     <string name="invalid_user">مستخدم خاطى</string>
     <string name="invalid_pass">كلمة السر خاطئة</string>
-
-
+    <string name="app_done">تم</string>
+    <string name="cancel">إلغاء</string>
+    <string name="Enter_Settings">الإعدادات</string>
+    <string name="required">حقل فارغ</string>
+    <string name="ipaddress">ip address</string>
 </resources>
