@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="5dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="50dp"
+        android:outlineAmbientShadowColor="@color/white"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="0dp">
+
+
+
+                <LinearLayout
+                    android:id="@+id/mainLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                       >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:gravity="start|center"
+                            android:text="user Name"
+                            android:textColor="@color/text_color"
+                            android:textStyle="bold"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:id="@+id/capName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start|center"
+                            android:padding="5dp"
+                            android:text="Ahmad mohmad"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="15dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                       >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:gravity="start|center"
+                            android:text="App User Name"
+                            android:textColor="@color/text_color"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/appUserName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start|center"
+                            android:padding="5dp"
+                            android:text="Ahmad mohmad"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="15dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/search_text"
+                        android:backgroundTint="@color/no_color"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+
+                                android:text="POS NO"
+                                android:textColor="@color/black"
+                                android:textSize="15dp"
+                                />
+
+                            <TextView
+                                android:id="@+id/posNo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:text="5"
+                                android:textColor="@color/black"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+
+                                android:text="Total"
+                                android:textColor="@color/text_color"
+                                android:textSize="15dp"
+                                />
+
+                            <TextView
+                                android:id="@+id/total"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:text="5"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/discount"
+                                android:textColor="@color/black"
+                                android:textSize="15dp"
+                                />
+
+                            <TextView
+                                android:id="@+id/disc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:text="5"
+                                android:textColor="@color/black"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <Button-->
+            <!--                    android:id="@+id/rej"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1"-->
+            <!--                    android:layout_marginRight="5dp"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:background="@drawable/loginbtn"-->
+            <!--                    android:backgroundTint="@color/orange"-->
+            <!--                    android:text="Reject" />-->
+
+            <!--                <Button-->
+            <!--                    android:id="@+id/accept"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:layout_marginLeft="5dp"-->
+            <!--                    android:background="@drawable/loginbtn"-->
+            <!--                    android:text="Accept" />-->
+            <!--            </LinearLayout>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/no_color"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <!--                    <de.hdodenhof.circleimageview.CircleImageView-->
+                <!--                        android:id="@+id/profile_image_"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="100dp"-->
+                <!--                        android:layout_weight="0"-->
+                <!--                        android:padding="5dp"-->
+                <!--                        android:src="@drawable/car4"-->
+                <!--                        app:civ_border_color="@color/yellow"-->
+                <!--                        app:civ_border_width="3dp"-->
+                <!--                        />-->
+                <Button
+                    android:id="@+id/rejectButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Reject"
+                    android:backgroundTint="@color/colorblue1"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/acceptButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="3dp"
+                    android:text="Approval" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

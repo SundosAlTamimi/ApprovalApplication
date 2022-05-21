@@ -9,6 +9,13 @@
     <string name="ip_settings">Ip Settings</string>
     <string name="invalid_user">Invalid User</string>
     <string name="invalid_pass">Invalid Password</string>
+    <string name="Welcome_User">Welcome User</string>
+    <string name="Details">Details</string>
+    <string name="WDate">Date</string>
+    <string name="total">Total</string>
+    <string name="discount">Discount</string>
+    <string name="appUser">App User Name</string>
+    <string name="KINDNM">Kind Name</string>
     <string name="app_done">Done</string>
     <string name="cancel">Cancel</string>
     <string name="Enter_Settings">Enter Settings</string>
