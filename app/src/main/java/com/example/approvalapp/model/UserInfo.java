@@ -1,4 +1,4 @@
-package com.example.approvalapp.model;
+package com.example.approvalapp.Model;
 
 public class UserInfo {
     private  String UserName;
