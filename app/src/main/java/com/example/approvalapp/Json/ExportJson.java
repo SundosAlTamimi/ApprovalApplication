@@ -14,6 +14,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 
+import com.example.approvalapp.DetailActivity;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -33,16 +35,17 @@ public class ExportJson {
     Context context;
     SweetAlertDialog swASingUp, swAsPay, swAsRate, sweetAlertDialogStatus,swANote, swATrans, sweetAlertDialogStatusDelete,sweetAlertDialogStatusDeleteBefore;
     String URL_TO_HIT;
+    int Flag;
 
     public ExportJson(Context context) {
         this.context = context;
     }
 
     public void ApprovalRaw(Context context,String APPKIND,String POSNO,String USERNO,String USERNM,String REQNO,int Flag) {
-
-        if(Flag==1) {
+this.Flag=Flag;
+        if(Flag==1||Flag==2) {
             new Approval(context, APPKIND, POSNO, USERNO, USERNM, REQNO).execute();
-        }else{
+        }else if(Flag==3||Flag==4) {
             new Reject(context, APPKIND, POSNO, USERNO, USERNM, REQNO).execute();
         }
 
@@ -150,26 +153,33 @@ public class ExportJson {
 
             if (s != null) {
                 if (s.contains("APPNUM")) {
+                    swATrans.dismissWithAnimation();
                     Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
-                    new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
-                            .setTitleText("approved !!!")
-                            .setContentText("")
-                            .setCancelButton("cancel", new SweetAlertDialog.OnSweetClickListener() {
+                    new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE);
+                    swATrans   .setTitleText("approved !!!");
+                    swATrans  .setContentText("");
+
+//                            .setCancelButton("cancel", new SweetAlertDialog.OnSweetClickListener() {
+//                                @Override
+//                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                    sweetAlertDialog.dismissWithAnimation();
+//                                }
+//                            })
+                    swATrans .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                 @Override
                                 public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                    sweetAlertDialog.dismissWithAnimation();
-                                }
-                            })
-                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                @Override
-                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                    if(Flag==2||Flag==4){
+                                        DetailActivity detailActivity=(DetailActivity)context;
 
+                                        detailActivity.finishLayout();
+                                    }
                                     sweetAlertDialog.dismissWithAnimation();
 
 
                                 }
-                            })
-                            .show();
+                            });
+                    swATrans.setCanceledOnTouchOutside(false);
+                    swATrans .show();
 
                     ImportJson importJson=new ImportJson(context);
                     importJson.getOrder();
@@ -178,15 +188,20 @@ public class ExportJson {
                     new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("Request already approved !!!")
                             .setContentText("")
-                            .setCancelButton("cancel", new SweetAlertDialog.OnSweetClickListener() {
-                                @Override
-                                public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                    sweetAlertDialog.dismissWithAnimation();
-                                }
-                            })
+//                            .setCancelButton("cancel", new SweetAlertDialog.OnSweetClickListener() {
+//                                @Override
+//                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                    sweetAlertDialog.dismissWithAnimation();
+//                                }
+//                            })
                             .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                 @Override
                                 public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                    if(Flag==2||Flag==4){
+                                        DetailActivity detailActivity=(DetailActivity)context;
+
+                                        detailActivity.finishLayout();
+                                    }
 
                                     sweetAlertDialog.dismissWithAnimation();
 
@@ -330,21 +345,29 @@ public class ExportJson {
 
             if (s != null) {
                 if (s.contains("RJNUM")) {
+                    swATrans.dismissWithAnimation();
                     Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
 
-                    new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
-                            .setTitleText("rejected !!!")
+                    new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
+                            .setTitleText(" rejected Successful !!!")
                             .setContentText("")
-                            .setCancelButton("cancel", new SweetAlertDialog.OnSweetClickListener() {
-                                @Override
-                                public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                    sweetAlertDialog.dismissWithAnimation();
-                                }
-                            })
+//                            .setCancelButton("cancel", new SweetAlertDialog.OnSweetClickListener() {
+//                                @Override
+//                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+//
+//
+//                                    sweetAlertDialog.dismissWithAnimation();
+//                                }
+//                            })
                             .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                 @Override
                                 public void onClick(SweetAlertDialog sweetAlertDialog) {
 
+                                    if(Flag==2||Flag==4){
+                                        DetailActivity detailActivity=(DetailActivity)context;
+
+                                        detailActivity.finishLayout();
+                                    }
                                     sweetAlertDialog.dismissWithAnimation();
 
 
@@ -359,16 +382,21 @@ public class ExportJson {
                     new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("Request already rejected !!!")
                             .setContentText("")
-                            .setCancelButton("cancel", new SweetAlertDialog.OnSweetClickListener() {
-                                @Override
-                                public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                    sweetAlertDialog.dismissWithAnimation();
-                                }
-                            })
+//                            .setCancelButton("cancel", new SweetAlertDialog.OnSweetClickListener() {
+//                                @Override
+//                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                    sweetAlertDialog.dismissWithAnimation();
+//                                }
+//                            })
                             .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                 @Override
                                 public void onClick(SweetAlertDialog sweetAlertDialog) {
 
+                                    if(Flag==2||Flag==4){
+                                        DetailActivity detailActivity=(DetailActivity)context;
+
+                                        detailActivity.finishLayout();
+                                    }
                                     sweetAlertDialog.dismissWithAnimation();
 
 

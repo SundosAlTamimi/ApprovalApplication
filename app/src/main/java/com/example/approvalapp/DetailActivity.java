@@ -63,7 +63,7 @@ public class DetailActivity extends AppCompatActivity {
 
                     ExportJson exportJson = new ExportJson(DetailActivity.this);
                     exportJson.ApprovalRaw(DetailActivity.this, detailList.getAPPKIND(),detailList.getPOSNO(),detailList.getUSERNO()
-                            ,detailList.getUSERNM(),detailList.getREQNO(),1);
+                            ,detailList.getUSERNM(),detailList.getREQNO(),2);
 
                 }catch (Exception e){
 
@@ -92,12 +92,17 @@ public class DetailActivity extends AppCompatActivity {
 
                 ExportJson exportJson = new ExportJson(DetailActivity.this);
                 exportJson.ApprovalRaw(DetailActivity.this, detailList.getAPPKIND(),detailList.getPOSNO(),detailList.getUSERNO()
-                        ,detailList.getUSERNM(),detailList.getREQNO(),2);
+                        ,detailList.getUSERNM(),detailList.getREQNO(),4);
 
             }
         });
 
 
+
+
+    }
+    public void finishLayout(){
+finish();
     }
 
 }

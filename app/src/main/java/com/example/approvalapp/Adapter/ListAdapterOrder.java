@@ -41,8 +41,15 @@ public class ListAdapterOrder extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return itemsList.size();
+//        try {
+            return itemsList.size();
+//        } catch (Exception e) {
+//            return 0;
+//        }
+
+
     }
+
 
     @Override
     public Object getItem(int i) {
@@ -128,7 +135,7 @@ public class ListAdapterOrder extends BaseAdapter {
 
                 ExportJson exportJson = new ExportJson(context);
                 exportJson.ApprovalRaw(context, itemsList.get(i).getAPPKIND(),itemsList.get(i).getPOSNO(),itemsList.get(i).getUSERNO()
-                        ,itemsList.get(i).getUSERNM(),itemsList.get(i).getREQNO(),2);
+                        ,itemsList.get(i).getUSERNM(),itemsList.get(i).getREQNO(),3);
 
             }
         });

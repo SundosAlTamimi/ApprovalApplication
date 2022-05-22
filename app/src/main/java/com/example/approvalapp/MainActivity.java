@@ -92,7 +92,8 @@ initialization();
     }
 
     public void listOfOrderClear() {
-        listAdapterOrder=new ListAdapterOrder(MainActivity.this,null);
+        listData.clear();
+        listAdapterOrder=new ListAdapterOrder(MainActivity.this,listData);
         list.setAdapter(listAdapterOrder);
     }
 

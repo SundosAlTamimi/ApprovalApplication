@@ -434,7 +434,6 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
                     android:layout_weight="1"
-                    android:background="@drawable/design_2"
                     android:padding="5dp"
                     android:backgroundTint="@color/colorblue1"
                     android:text="Reject"
@@ -448,8 +447,8 @@
                     android:layout_margin="3dp"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:background="@drawable/loginbtn"
-                    android:text="Approval" />
+
+android:backgroundTint="@color/colorPrimary"                    android:text="Approval" />
             </LinearLayout>
 
 

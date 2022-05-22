@@ -149,7 +149,7 @@ Context context;
             String impo = "";
             if (s != null) {
 
-                if (s.contains("ClientName")) {
+                if (s.contains("APPKIND")) {
 
 
                     Gson gson = new Gson();
