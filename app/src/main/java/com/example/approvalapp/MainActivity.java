@@ -1,7 +1,10 @@
 package com.example.approvalapp;
 
+import static androidx.core.content.PackageManagerCompat.LOG_TAG;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     EditText simpleSearchView;
     List<ListOfOrderData> filterList=new ArrayList<>();
     ImportJson importJson;
+    SwipeRefreshLayout mySwipeRefreshLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +45,25 @@ initialization();
         list=findViewById(R.id.list);
          simpleSearchView =  findViewById(R.id.search); // inititate a search view
         listData=new ArrayList<>();
-
-
+        mySwipeRefreshLayout=findViewById(R.id.swiperefresh);
         importJson=new ImportJson(MainActivity.this);
         importJson.getOrder();
+        mySwipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        Log.e("refresh", "onRefresh called from SwipeRefreshLayout");
+
+                        // This method performs the actual data-refresh operation.
+                        // The method calls setRefreshing(false) when it's finished.
+                        importJson.getOrder();
+                    }
+                }
+        );
+
+
+
+
 
 //        listData.add(new ListOfOrderData("gr"));
 //        listData.add(new ListOfOrderData("wes"));
@@ -96,6 +115,11 @@ initialization();
         listData=allList;
         listAdapterOrder=new ListAdapterOrder(MainActivity.this,allList);
         list.setAdapter(listAdapterOrder);
+        try {
+            mySwipeRefreshLayout.setRefreshing(false);
+        }catch (Exception e){
+
+        }
     }
     public void listOfOrder_2(List<ListOfOrderData>allList) {
         Log.e("gggggg2",""+listData.size());
