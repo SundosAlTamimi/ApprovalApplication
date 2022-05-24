@@ -46,23 +46,23 @@ initialization();
         importJson=new ImportJson(MainActivity.this);
         importJson.getOrder();
 
-        listData.add(new ListOfOrderData("gr"));
-        listData.add(new ListOfOrderData("wes"));
-        listData.add(new ListOfOrderData("s"));
-        listData.add(new ListOfOrderData("v"));
-        listData.add(new ListOfOrderData("w"));
-        listData.add(new ListOfOrderData("w"));
-        listData.add(new ListOfOrderData("gr"));
-        listData.add(new ListOfOrderData("o"));
-        listData.add(new ListOfOrderData("l"));
-        listData.add(new ListOfOrderData("p"));
-        listData.add(new ListOfOrderData("ki"));
-        listData.add(new ListOfOrderData("hg"));
-        listData.add(new ListOfOrderData("fr"));
-        listData.add(new ListOfOrderData("iu"));
-        listData.add(new ListOfOrderData("or"));
-        listAdapterOrder=new ListAdapterOrder(MainActivity.this,listData);
-        list.setAdapter(listAdapterOrder);
+//        listData.add(new ListOfOrderData("gr"));
+//        listData.add(new ListOfOrderData("wes"));
+//        listData.add(new ListOfOrderData("s"));
+//        listData.add(new ListOfOrderData("v"));
+//        listData.add(new ListOfOrderData("w"));
+//        listData.add(new ListOfOrderData("w"));
+//        listData.add(new ListOfOrderData("gr"));
+//        listData.add(new ListOfOrderData("o"));
+//        listData.add(new ListOfOrderData("l"));
+//        listData.add(new ListOfOrderData("p"));
+//        listData.add(new ListOfOrderData("ki"));
+//        listData.add(new ListOfOrderData("hg"));
+//        listData.add(new ListOfOrderData("fr"));
+//        listData.add(new ListOfOrderData("iu"));
+//        listData.add(new ListOfOrderData("or"));
+//        listAdapterOrder=new ListAdapterOrder(MainActivity.this,listData);
+//        list.setAdapter(listAdapterOrder);
 
         simpleSearchView.addTextChangedListener(new TextWatcher() {
             @Override

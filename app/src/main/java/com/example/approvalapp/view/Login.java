@@ -2,6 +2,7 @@ package com.example.approvalapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.room.Room;
 
 import android.app.ActivityManager;
 import android.app.Dialog;
@@ -23,8 +24,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.approvalapp.MainActivity;
+import com.example.approvalapp.Model.ListOfOrderData;
 import com.example.approvalapp.R;
 import com.example.approvalapp.Model.UserInfo;
+import com.example.approvalapp.ROOM.AppDatabase;
+import com.example.approvalapp.ROOM.UserDaoCard;
+import com.example.approvalapp.Services.ApprovalDatabase;
 import com.example.approvalapp.Services.MyServicesForNotification;
 import com.example.approvalapp.retrofit.ApiLogin;
 import com.example.approvalapp.retrofit.RetrofitInstance;
@@ -53,6 +58,7 @@ public class Login extends AppCompatActivity {
     public final static String SETTINGS_PREFERENCES = "SETTINGS_PREFERENCES";
     public final static String IPAdd_PREF = "IP_Address";
     String ipAddress;
+    ApprovalDatabase approvalDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,12 +94,20 @@ public class Login extends AppCompatActivity {
         passwordEdt=findViewById(R.id.passEdt);
         login=findViewById(R.id.login);
         login.setOnClickListener(onClick);
+        approvalDatabase=new ApprovalDatabase(Login.this);
+
     }
     View.OnClickListener onClick=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             if(view.getId()==R.id.login){
                 validateUserPass();
+                try {
+                    getAllReq();
+                }catch (Exception e){
+
+                }
+
             }
         }
     };
@@ -280,6 +294,17 @@ public class Login extends AppCompatActivity {
         Log.e("IP_PREF", ipAddress + "");
 
         return !(ipAddress + "").trim().equals("");
+
+    }
+
+    public void getAllReq(){
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "ApprovalDBase") .fallbackToDestructiveMigration().allowMainThreadQueries().build();
+
+        UserDaoCard userDao = db.itemCard();
+
+        List<String> users = userDao.getAll();
+
 
     }
 }
