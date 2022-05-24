@@ -3,7 +3,9 @@ package com.example.approvalapp.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.app.ActivityManager;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -23,6 +25,7 @@ import android.widget.Toast;
 import com.example.approvalapp.MainActivity;
 import com.example.approvalapp.R;
 import com.example.approvalapp.Model.UserInfo;
+import com.example.approvalapp.Services.MyServicesForNotification;
 import com.example.approvalapp.retrofit.ApiLogin;
 import com.example.approvalapp.retrofit.RetrofitInstance;
 import com.google.android.material.textfield.TextInputEditText;
@@ -57,7 +60,10 @@ public class Login extends AppCompatActivity {
         initial();
         if (!checkIpSettings())
             showSettingsDialog();
-
+        if(!isMyServiceRunning(MyServicesForNotification.class)) {
+            startService(new Intent(Login.this, MyServicesForNotification.class));
+            Log.e("MyServicesFor_2", "" + isMyServiceRunning(MyServicesForNotification.class));
+        }
 
         findViewById(R.id.request_ip).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +72,16 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     private void initial() {
         unameEdt=findViewById(R.id.unameEdt);

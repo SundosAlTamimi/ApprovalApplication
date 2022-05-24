@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.example.approvalapp.Adapter.ListAdapterOrder;
 import com.example.approvalapp.Json.ImportJson;
@@ -21,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     ListView list;
     ListAdapterOrder listAdapterOrder;
     List<ListOfOrderData>listData;
-    SearchView simpleSearchView;
+    EditText simpleSearchView;
     List<ListOfOrderData> filterList=new ArrayList<>();
     ImportJson importJson;
     @Override
@@ -35,58 +39,66 @@ initialization();
 
     private void initialization() {
         list=findViewById(R.id.list);
-         simpleSearchView = (SearchView) findViewById(R.id.search); // inititate a search view
+         simpleSearchView =  findViewById(R.id.search); // inititate a search view
         listData=new ArrayList<>();
-        simpleSearchView.setQueryHint("Search View");
+
 
         importJson=new ImportJson(MainActivity.this);
         importJson.getOrder();
 
-//        listData.add(new ListOfOrderData("ee"));
-//
-//        listData.add(new ListOfOrderData("ee1"));
-//        listData.add(new ListOfOrderData("ee2"));
-//        listData.add(new ListOfOrderData("ee3"));
-//        listData.add(new ListOfOrderData("ee4"));
-//        listData.add(new ListOfOrderData("ee5"));
-//        listData.add(new ListOfOrderData("ee6"));
-//        listData.add(new ListOfOrderData("ee7"));
-//        listData.add(new ListOfOrderData("ee8"));
-//        listData.add(new ListOfOrderData("ee9"));
-//        listData.add(new ListOfOrderData("ee74"));
-//        listData.add(new ListOfOrderData("ee5"));
-//        listData.add(new ListOfOrderData("ee2"));
-//        listData.add(new ListOfOrderData("ee2"));
-//        listData.add(new ListOfOrderData("ee5"));
-//        listAdapterOrder=new ListAdapterOrder(MainActivity.this,listData);
-//        list.setAdapter(listAdapterOrder);
+        listData.add(new ListOfOrderData("gr"));
+        listData.add(new ListOfOrderData("wes"));
+        listData.add(new ListOfOrderData("s"));
+        listData.add(new ListOfOrderData("v"));
+        listData.add(new ListOfOrderData("w"));
+        listData.add(new ListOfOrderData("w"));
+        listData.add(new ListOfOrderData("gr"));
+        listData.add(new ListOfOrderData("o"));
+        listData.add(new ListOfOrderData("l"));
+        listData.add(new ListOfOrderData("p"));
+        listData.add(new ListOfOrderData("ki"));
+        listData.add(new ListOfOrderData("hg"));
+        listData.add(new ListOfOrderData("fr"));
+        listData.add(new ListOfOrderData("iu"));
+        listData.add(new ListOfOrderData("or"));
+        listAdapterOrder=new ListAdapterOrder(MainActivity.this,listData);
+        list.setAdapter(listAdapterOrder);
 
-        simpleSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        simpleSearchView.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextSubmit(String s) {
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-
-                return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String s) {
-                String text = s;
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String text = simpleSearchView.getText().toString();
+                Log.e("gggggg",""+listData.size());
                 if(!text.equals("")) {
+
 
                     listContains(listData, text);
                 }
-//                else{
-//                    listOfOrder(listData);
-//                }
-                return true;
+                else{
+                    listOfOrder_2(listData);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
-
     }
 
     public void listOfOrder(List<ListOfOrderData>allList) {
+        Log.e("gggggg2",""+listData.size());
         listData=allList;
+        listAdapterOrder=new ListAdapterOrder(MainActivity.this,allList);
+        list.setAdapter(listAdapterOrder);
+    }
+    public void listOfOrder_2(List<ListOfOrderData>allList) {
+        Log.e("gggggg2",""+listData.size());
         listAdapterOrder=new ListAdapterOrder(MainActivity.this,allList);
         list.setAdapter(listAdapterOrder);
     }
@@ -114,7 +126,7 @@ initialization();
         {
 //
         }
-        listOfOrder(filterList);
+        listOfOrder_2(filterList);
         Log.e("data2=",""+filterList.size());
 
     }

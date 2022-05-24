@@ -27,6 +27,15 @@
         </activity>
 
         <activity android:name=".DetailActivity"></activity>
+
+        <service
+            android:name=".Services.MyServicesForNotification"
+            android:enabled="true"
+            android:exported="false"
+            android:finishOnTaskLaunch="true"
+            android:foregroundServiceType="mediaPlayback"
+            android:process=":MyServicesFire"
+            android:stopWithTask="false" />
     </application>
 
 </manifest>
