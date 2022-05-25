@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 
 import com.example.approvalapp.DetailActivity;
+import com.example.approvalapp.MainActivity;
 
 import org.json.JSONObject;
 
@@ -179,7 +180,7 @@ this.Flag=Flag;
 //                                }
 //                            });
 //                    swATrans.setCanceledOnTouchOutside(false);
-                    Toast.makeText(context, "approved Successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "approved Successful", Toast.LENGTH_LONG).show();
                     if(Flag==2||Flag==4){
                         DetailActivity detailActivity=(DetailActivity)context;
 
@@ -218,11 +219,11 @@ this.Flag=Flag;
 
                     if(s.contains("Request already rejected")){
 
-                        Toast.makeText(context, "Request already rejected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Request already rejected", Toast.LENGTH_LONG).show();
 
 
                     }else if(s.contains("Request already approved")){
-                        Toast.makeText(context, "Request already approved", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Request already approved", Toast.LENGTH_LONG).show();
 
                     }
                     if(Flag==2||Flag==4){
@@ -401,7 +402,7 @@ this.Flag=Flag;
 //                                }
 //                            })
 //                            .show();
-                    Toast.makeText(context, "rejected Successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "rejected Successful", Toast.LENGTH_LONG).show();
 
                     ImportJson importJson=new ImportJson(context);
                     importJson.getOrder();
@@ -435,11 +436,11 @@ this.Flag=Flag;
 
                    if(s.contains("Request already rejected")){
 
-                       Toast.makeText(context, "Request already rejected", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(context, "Request already rejected", Toast.LENGTH_LONG).show();
 
 
                    }else if(s.contains("Request already approved")){
-                       Toast.makeText(context, "Request already approved", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(context, "Request already approved", Toast.LENGTH_LONG).show();
 
                    }
                     if(Flag==2||Flag==4){

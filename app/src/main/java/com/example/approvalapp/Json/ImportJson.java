@@ -174,10 +174,14 @@ Context context;
                     }
 
                 } else {
-                    clientOrders.clear();
-                    MainActivity mainValetActivity = (MainActivity) context;
-                    mainValetActivity.listOfOrderClear();
-                    Log.e("onPostExecute", "" + s.toString());
+                    try {
+                        clientOrders.clear();
+                        MainActivity mainValetActivity = (MainActivity) context;
+                        mainValetActivity.listOfOrderClear();
+                        Log.e("onPostExecute", "" + s.toString());
+                    }catch (Exception e){
+
+                    }
                 //isOk=true;
 
                 }

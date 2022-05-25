@@ -6,6 +6,9 @@
         <entry key="..\:/Users/dell54/AndroidStudioProjects/ApprovalApp/app/src/main/res/drawable-v24/loginbtn.xml" value="0.2195" />
         <entry key="..\:/Users/dell54/AndroidStudioProjects/ApprovalApp/app/src/main/res/drawable-v24/white_bg_top_radius.xml" value="0.2195" />
         <entry key="..\:/Users/dell54/AndroidStudioProjects/ApprovalApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/dell54/AndroidStudioProjects/ApprovalApp/app/src/main/res/layout/activity_main.xml" value="0.2609375" />
+        <entry key="..\:/Users/dell54/AndroidStudioProjects/ApprovalApp/app/src/main/res/layout/captain_order_raw.xml" value="0.2609375" />
+        <entry key="..\:/Users/dell54/AndroidStudioProjects/ApprovalApp/app/src/main/res/layout/main_two.xml" value="0.2609375" />
         <entry key="..\:/Users/mr gamer/AndroidStudioProjects/ApprovalApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/mr gamer/AndroidStudioProjects/ApprovalApplication/app/src/main/res/drawable-v24/loginbtn.xml" value="0.173" />
         <entry key="..\:/Users/mr gamer/AndroidStudioProjects/ApprovalApplication/app/src/main/res/drawable-v24/white_bg_top_radius.xml" value="0.1" />
@@ -26,7 +29,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

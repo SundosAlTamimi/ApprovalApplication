@@ -175,7 +175,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onFailure(Call<UserInfo> call, Throwable throwable) {
                 pDialog.dismissWithAnimation();
-                Toast.makeText(Login.this, "throwable"+throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "throwable"+throwable.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
