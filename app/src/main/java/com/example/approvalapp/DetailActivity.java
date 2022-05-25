@@ -20,7 +20,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 public class DetailActivity extends AppCompatActivity {
     Button accept,rej;
     ListOfOrderData detailList;
-    TextView userName,date,total,discount,KindNum;
+    TextView userName,date,total,discount,KindNum,AppuserName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +31,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void initialization() {
-
+        AppuserName=findViewById(R.id.AppuserName);
         accept=findViewById(R.id.acceptButton);
         rej=findViewById(R.id.rejectButton);
          userName=findViewById(R.id.userName);
@@ -49,6 +49,7 @@ public class DetailActivity extends AppCompatActivity {
             total.setText(""+detailList.getTOTAL());
             discount.setText(""+detailList.getDISCOUNT());
             KindNum.setText(""+detailList.getKINDNM());
+            AppuserName.setText(""+detailList.getAPPUSERNM());
 
 
         }catch (Exception e){
