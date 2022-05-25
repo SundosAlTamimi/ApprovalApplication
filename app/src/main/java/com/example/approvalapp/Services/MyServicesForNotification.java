@@ -1,5 +1,8 @@
 package com.example.approvalapp.Services;
 
+import static com.example.approvalapp.view.Login.IPAdd_PREF;
+import static com.example.approvalapp.view.Login.SETTINGS_PREFERENCES;
+
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -7,6 +10,7 @@ import android.app.Service;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -55,6 +59,8 @@ public class MyServicesForNotification extends Service {
     public static boolean ServiceWork = true;
     Timer T ;
     String URL_TO_HIT="";
+    SharedPreferences sharedPref;
+    String  ipAddress;
 
     List<ListOfOrderData> clientOrders;
 
@@ -199,7 +205,9 @@ public class MyServicesForNotification extends Service {
 
 //                String id=valetDatabase.getAllSetting();
 //                String ip =valetDatabase.getAllIPSetting();
-                URL_TO_HIT = "http://10.0.0.16:8080/BCIAPP/main.dll/GetAllApprovals";
+                sharedPref = getSharedPreferences(SETTINGS_PREFERENCES, MODE_PRIVATE);
+                ipAddress = sharedPref.getString(IPAdd_PREF, "");
+                URL_TO_HIT = ipAddress+"GetAllApprovals";
 //                }
             } catch (Exception e) {
                 Log.e("URL_TO_HIT111", "JsonResponse\t" + URL_TO_HIT);

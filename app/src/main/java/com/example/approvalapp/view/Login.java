@@ -54,6 +54,7 @@ public class Login extends AppCompatActivity {
     EditText unameEdt,passwordEdt;
     Button login;
     ApiLogin myAPI;
+    public  static  String userName="";
     SweetAlertDialog pDialog,sweetDialog;
     public final static String SETTINGS_PREFERENCES = "SETTINGS_PREFERENCES";
     public final static String IPAdd_PREF = "IP_Address";
@@ -172,7 +173,9 @@ public class Login extends AppCompatActivity {
                     if(response.body().getStatusCode().equals("0"))
                     {
                         Log.e("onResponse", "not=" + response.body().getUserName());
+                        userName=response.body().getUserName();
                         Intent intent=new Intent(Login.this, MainActivity.class);
+
                         startActivity(intent);
 
                     }else if(response.body().getStatusCode().equals("11"))

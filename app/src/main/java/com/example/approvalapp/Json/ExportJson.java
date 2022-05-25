@@ -1,11 +1,16 @@
 package com.example.approvalapp.Json;
 
+import static android.content.Context.MODE_PRIVATE;
 import static androidx.core.content.ContextCompat.getSystemService;
 
+
+import static com.example.approvalapp.view.Login.IPAdd_PREF;
+import static com.example.approvalapp.view.Login.SETTINGS_PREFERENCES;
 
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -37,9 +42,12 @@ public class ExportJson {
     SweetAlertDialog swASingUp, swAsPay, swAsRate, sweetAlertDialogStatus,swANote, swATrans, sweetAlertDialogStatusDelete,sweetAlertDialogStatusDeleteBefore;
     String URL_TO_HIT;
     int Flag;
-
+    SharedPreferences sharedPref;
+    String  ipAddress;
     public ExportJson(Context context) {
         this.context = context;
+         sharedPref = context.getSharedPreferences(SETTINGS_PREFERENCES, MODE_PRIVATE);
+          ipAddress = sharedPref.getString(IPAdd_PREF, "");
     }
 
     public void ApprovalRaw(Context context,String APPKIND,String POSNO,String USERNO,String USERNM,String REQNO,int Flag) {
@@ -91,7 +99,7 @@ this.Flag=Flag;
 //                valetDatabase = new ValetDatabase(context);
 //                String ip = valetDatabase.getAllIPSetting();//192.168.1.101:81
 
-                String link = "http://10.0.0.16:8080/BCIAPP/main.dll/MakeApproval?";
+                String link = ipAddress+"MakeApproval?";
 
 
                 String data = "APPKIND=" + APPKIND
@@ -304,7 +312,7 @@ this.Flag=Flag;
 //                valetDatabase = new ValetDatabase(context);
 //                String ip = valetDatabase.getAllIPSetting();//192.168.1.101:81
 
-                String link = "http://10.0.0.16:8080/BCIAPP/main.dll/MakeReject?";
+                String link = ipAddress+"MakeReject?";
 
 
                 String data = "APPKIND=" + APPKIND

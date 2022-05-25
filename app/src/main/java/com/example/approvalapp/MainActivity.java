@@ -2,6 +2,8 @@ package com.example.approvalapp;
 
 import static androidx.core.content.PackageManagerCompat.LOG_TAG;
 
+import static com.example.approvalapp.view.Login.userName;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -30,10 +32,12 @@ public class MainActivity extends AppCompatActivity {
     ListAdapterOrder listAdapterOrder;
     List<ListOfOrderData>listData;
     EditText simpleSearchView;
+
     List<ListOfOrderData> filterList=new ArrayList<>();
     ImportJson importJson;
     SwipeRefreshLayout mySwipeRefreshLayout;
     public static Context globalContext;
+    TextView user_text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,8 @@ initialization();
         list=findViewById(R.id.list);
          simpleSearchView =  findViewById(R.id.search); // inititate a search view
         listData=new ArrayList<>();
+        user_text=findViewById(R.id.user_text);
+        user_text.setText(userName+"");
         mySwipeRefreshLayout=findViewById(R.id.swiperefresh);
         importJson=new ImportJson(MainActivity.this);
         importJson.getOrder();

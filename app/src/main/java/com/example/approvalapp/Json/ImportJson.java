@@ -1,12 +1,16 @@
 package com.example.approvalapp.Json;
 
+import static android.content.Context.MODE_PRIVATE;
 import static androidx.core.content.ContextCompat.getSystemService;
 
 import static com.example.approvalapp.MainActivity.globalContext;
+import static com.example.approvalapp.view.Login.IPAdd_PREF;
+import static com.example.approvalapp.view.Login.SETTINGS_PREFERENCES;
 
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -49,10 +53,15 @@ public class ImportJson {
     SweetAlertDialog swALogIn,swAStusus,swAStususRej;
 Context context;
     String URL_TO_HIT;
+
     List<ListOfOrderData> clientOrders;
+    SharedPreferences sharedPref;
+    String  ipAddress;
     public ImportJson(Context context) {
         this.context=context;
         this.clientOrders=new ArrayList<>();
+        sharedPref = context.getSharedPreferences(SETTINGS_PREFERENCES, MODE_PRIVATE);
+        ipAddress = sharedPref.getString(IPAdd_PREF, "");
     }
 
 
@@ -82,7 +91,7 @@ Context context;
 
 //                String id=valetDatabase.getAllSetting();
 //                String ip =valetDatabase.getAllIPSetting();
-                URL_TO_HIT = "http://10.0.0.16:8080/BCIAPP/main.dll/GetAllApprovals";
+                URL_TO_HIT = ipAddress+"GetAllApprovals";
 //                }
             } catch (Exception e) {
                 Log.e("URL_TO_HIT111", "JsonResponse\t" + URL_TO_HIT);
