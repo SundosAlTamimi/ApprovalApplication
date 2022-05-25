@@ -120,8 +120,14 @@ public class Login extends AppCompatActivity {
         {
             if(passwordEdt.length()!=0)
             {
-                loginUser();
-                fetchCallData(user,password);
+                try {
+                    loginUser();
+                    fetchCallData(user,password);
+                }catch (Exception e){
+                    Toast.makeText(this, "check setting Ip", Toast.LENGTH_SHORT).show();
+                    Log.e("loginUserException",""+e.getMessage());
+                }
+
             }else {
                 passwordEdt.setError("*Required");
             }
@@ -131,9 +137,18 @@ public class Login extends AppCompatActivity {
     }
 
     private void loginUser() {
+        SharedPreferences sharedPref = getSharedPreferences(SETTINGS_PREFERENCES, MODE_PRIVATE);
+        ipAddress = sharedPref.getString(IPAdd_PREF, "");
+        Log.e("IP_PREF", ipAddress + "");
         String link = "http://10.0.0.16:8080/BCIAPP/main.dll/" ;
-        Retrofit retrofit = RetrofitInstance.getInstance(link);
-        myAPI = retrofit.create(ApiLogin.class);
+        try {
+            Retrofit retrofit = RetrofitInstance.getInstance(ipAddress);
+            myAPI = retrofit.create(ApiLogin.class);
+        }catch (Exception e){
+            Toast.makeText(this, "check Ip ", Toast.LENGTH_SHORT).show();
+            Log.e("loginUserException",""+e.getMessage());
+        }
+
     }
     public void fetchCallData(String user, String password) {
         pDialog = new SweetAlertDialog(Login.this, SweetAlertDialog.PROGRESS_TYPE);
