@@ -62,9 +62,9 @@ public class ListAdapterOrder extends BaseAdapter {
     }
 
     private class ViewHolder {
-        TextView capName, appUserName,posNo,total,disc;
+        TextView capName, appUserName,posNo,total,disc,detailText;
         Button accept,rej;
-        LinearLayout mainLinear;
+        LinearLayout mainLinear,discountLinear,totalLinear;
     }
 
     @Override
@@ -81,14 +81,28 @@ public class ListAdapterOrder extends BaseAdapter {
         holder.total=view.findViewById(R.id.total);
         holder.disc=view.findViewById(R.id.disc);
         holder.mainLinear=view.findViewById(R.id.mainLinear);
+        holder.discountLinear=view.findViewById(R.id.discountLinear);
+        holder.totalLinear=view.findViewById(R.id.totalLinear);
+        holder.detailText=view.findViewById(R.id.detailText);
 
-        holder.appUserName.setText(""+itemsList.get(i).getAPPUSERNM());
+        holder.discountLinear.setVisibility(View.GONE);
+        holder.totalLinear.setVisibility(View.GONE);
+
+        if(itemsList.get(i).getAPPKIND().equals("0")){
+                holder.discountLinear.setVisibility(View.VISIBLE);
+            holder.totalLinear.setVisibility(View.VISIBLE);
+        }else {
+            holder.discountLinear.setVisibility(View.GONE);
+            holder.totalLinear.setVisibility(View.GONE);
+        }
+
+        holder.appUserName.setText(""+itemsList.get(i).getKINDNM());
         holder.posNo.setText(""+itemsList.get(i).getPOSNM());
         holder.total.setText(""+itemsList.get(i).getTOTAL());
         holder.disc.setText(""+itemsList.get(i).getDISCOUNT());
 
         holder.capName.setText(itemsList.get(i).getUSERNM());
-        holder.mainLinear.setOnClickListener(new View.OnClickListener() {
+        holder.detailText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
