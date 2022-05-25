@@ -6,6 +6,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     List<ListOfOrderData> filterList=new ArrayList<>();
     ImportJson importJson;
     SwipeRefreshLayout mySwipeRefreshLayout;
+    public static Context globalContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,7 @@ initialization();
     }
 
     private void initialization() {
+        globalContext=MainActivity.this;
         list=findViewById(R.id.list);
          simpleSearchView =  findViewById(R.id.search); // inititate a search view
         listData=new ArrayList<>();

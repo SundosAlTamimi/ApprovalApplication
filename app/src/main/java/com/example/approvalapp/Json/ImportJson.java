@@ -2,6 +2,8 @@ package com.example.approvalapp.Json;
 
 import static androidx.core.content.ContextCompat.getSystemService;
 
+import static com.example.approvalapp.MainActivity.globalContext;
+
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -166,11 +168,14 @@ Context context;
                         clientOrders.clear();
                         // captainClientTransfers.addAll(enums.getOrderList());
                         clientOrders= (List<ListOfOrderData>) enums;
-                        MainActivity mainValetActivity = (MainActivity) context;
+                        MainActivity mainValetActivity = (MainActivity) globalContext;
                         mainValetActivity.listOfOrder(clientOrders);
                         //isOk=true;
+                        Log.e("Import","Finish");
+
                     } catch (Exception e) {
                         e.printStackTrace();
+                        Log.e("ExImport",""+e.toString());
                     }
 
                 } else {
